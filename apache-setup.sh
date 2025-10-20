@@ -38,4 +38,4 @@ echo "⏰ Setting up daily Certbot renewal cron job..."
 (crontab -l 2>/dev/null; echo "0 3 * * * /usr/bin/certbot renew --quiet") | crontab -
 
 echo "✅ Apache and SSL setup complete!"
-echo "🌐 Visit https://$DOMAIN to verify your secure website."
+echo "🌐 Visit https://moodtracker.khalidhashim.com/ to verify your secure website."
