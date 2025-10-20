@@ -39,19 +39,29 @@ sudo mv index.html /var/www/html/index.html
 - Used **Certbot** to issue a free SSL certificate.
 - Configured Apache to use HTTPS.
 
+#### 6. Assigned Elastic IP & Configured Subdomain
+- Allocated an **Elastic IP** in the AWS EC2 dashboard.
+- Attached the Elastic IP to the EC2 instance for persistent access.
+- Created a **subdomain DNS record** (e.g., `web.mydomain.com`) in **Route 53**.
+  - Record type: **A (IPv4 address)**
+  - Pointed it directly to the EC2 instance’s Elastic IP.
+
 ---
 
-### ⚠️ Challenge Faced
-After installing the SSL certificate with Certbot, the website was still not accessible over HTTPS.  
-I later discovered that port **443 (HTTPS)** was not open in the EC2 security group.  
-✅ After adding an inbound rule for port 443, HTTPS access worked correctly.
+### ⚠️ Challenges Faced
+- After installing the SSL certificate with Certbot, the website wasn’t accessible via HTTPS.  
+  🔍 Discovered that **port 443 (HTTPS)** was not open in the EC2 security group.  
+  ✅ Solution: Added an inbound rule to allow port 443.
+  
+- Gained deeper understanding of DNS and IP assignment while linking a **subdomain to Elastic IP**.
 
 ---
 
 ### ✅ Outcome
 Successfully hosted a secure, static website on an AWS EC2 instance, gaining experience with:
-- Instance provisioning and Linux setup
-- Apache web server deployment
-- Domain and SSL configuration (HTTPS)
-- Troubleshooting security group/firewall issues
+- Instance provisioning and Linux server setup
+- Apache web server deployment and configuration
+- SSL certificate management with Certbot (HTTPS)
+- DNS configuration using Route 53 and Elastic IP
+- Real-world troubleshooting (security groups, port access)
 - SSH access using `.pem` key on Windows Terminal
